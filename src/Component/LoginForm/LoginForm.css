@@ -1,0 +1,12 @@
+.credentials-and-password-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+.credentials-and-password-container input {
+    width: 30%;
+    margin-bottom: 20px;
+}

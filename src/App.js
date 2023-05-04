@@ -1,11 +1,14 @@
 import './App.css';
+import { useNavigate } from 'react-router-dom';
+import Router from "./Router"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 export function RequireAuth({ children }) {
-    // Used to ensure the refreshToken is called once at a time
-    const user = ???; // TODO Get user from local storage
+    const user = localStorage.getItem("user"); // TODO Get user from local storage
+    const navigate = useNavigate();
 
     if (user === null) {
-        //TODO Navigate to login
+        navigate('/login', { replace: true });
     } else {
         return children;
     }
@@ -13,10 +16,12 @@ export function RequireAuth({ children }) {
 
 function App() {
 
-//Navigation dans requireAuth
   return (
-      //TODO ROUTER
-      <div></div>
+    <div>
+        <BrowserRouter>
+            <Router />
+        </BrowserRouter>
+    </div>
   );
 }
 
